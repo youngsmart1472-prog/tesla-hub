@@ -512,7 +512,7 @@
                 margin-top: 8vh;   /* Slightly reduced on mobile but still lifted */
             }
             .hero {
-                min-height: 67vh;
+                min-height: 69vh;
             }
             .hero-bg {
                 animation: heroMoveMobile 3s ease-in-out infinite alternate;
