@@ -511,6 +511,9 @@
                 padding: 0 5%;
                 margin-top: 8vh;   /* Slightly reduced on mobile but still lifted */
             }
+            .hero {
+                min-height: 83vh;
+            }
             .hero-bg {
                 animation: heroMoveMobile 3s ease-in-out infinite alternate;
         }
