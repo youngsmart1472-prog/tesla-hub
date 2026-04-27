@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>TeslaHub | Buying Guide – Which Tesla & Worth in Nigeria</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #fff;
+            scroll-behavior: smooth;
+        }
+
+        /* ---------- NAVBAR (Centered Links) ---------- */
+        .navbar {
+            background: #0b0b0f;
+            border-bottom: 1px solid rgba(185,28,28,0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.9rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .brand-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            z-index: 1001;
+        }
+        .car-logo {
+            font-size: 1.9rem;
+            color: white;
+            transition: transform 0.2s;
+        }
+        .brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(125deg, #FFFFFF, #b0c4ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hamburger {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: white;
+            margin: 6px 0;
+            transition: 0.3s;
+        }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0 auto;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .nav-links li a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        .nav-links li a i {
+            font-size: 1rem;
+        }
+        .nav-links li a:hover, .nav-links li a.active {
+            color: #b91c1c;
+        }
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #b91c1c;
+            transition: width 0.25s;
+        }
+        .nav-links li a:hover::after, .nav-links li a.active::after {
+            width: 100%;
+        }
+        .btn-explore {
+            background: #b91c1c;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            z-index: 1001;
+        }
+        .btn-explore:hover {
+            background: whitesmoke;
+            color: #b91c1c;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive: on mobile, center links not needed, use hamburger */
+        @media (max-width: 880px) {
+            .nav-container { padding: 0.8rem 1.5rem; }
+            .hamburger { display: block; }
+            .nav-links {
+                position: static;
+                transform: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+            }
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #0b0b0f;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.2rem;
+                padding: 0 1.5rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s;
+                border-top: 1px solid rgba(185,28,28,0.3);
+                z-index: 999;
+            }
+            .nav-menu.active {
+                max-height: 420px;
+                padding: 1.5rem;
+            }
+            .btn-explore { margin-top: 0.3rem; }
+        }
+
+        /* ---------- BUYING GUIDE HERO ---------- */
+        .guide-hero {
+            background: linear-gradient(135deg, #0a0a0a 0%, #18181b 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(185,28,28,0.2);
+        }
+        .guide-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            animation: fadeInUp 0.8s ease;
+        }
+        .guide-hero h1 span {
+            color: #b91c1c;
+        }
+        .guide-hero p {
+            color: #aaa;
+            margin-top: 0.8rem;
+            font-size: 1rem;
+            animation: fadeInUp 0.8s 0.1s both;
+        }
+
+        /* ---------- CONTENT GRID ---------- */
+        .guide-grid {
+            max-width: 1300px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .guide-card {
+            background: #111111;
+            border-radius: 28px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.35s ease;
+            animation: fadeInUp 0.6s ease backwards;
+        }
+        .guide-card:nth-child(1) { animation-delay: 0.1s; }
+        .guide-card:nth-child(2) { animation-delay: 0.2s; }
+        .guide-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(185,28,28,0.4);
+        }
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #b91c1c;
+            padding-left: 1rem;
+        }
+        .card-title i {
+            font-size: 1.8rem;
+            color: #b91c1c;
+        }
+        .card-title h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        .model-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        .model-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .model-list li i {
+            color: #b91c1c;
+            width: 24px;
+        }
+        .pros-cons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .pros, .cons {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: 1rem;
+        }
+        .pros h4, .cons h4 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+        }
+        .pros ul, .cons ul {
+            list-style: none;
+        }
+        .pros li, .cons li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #ccc;
+        }
+        .pros li i, .cons li i {
+            color: #b91c1c;
+        }
+
+        /* Tips section (full width) */
+        .tips-section {
+            max-width: 1300px;
+            margin: 1rem auto 3rem;
+            padding: 0 2rem;
+        }
+        .tips-card {
+            background: #111111;
+            border-radius: 28px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            animation: fadeInUp 0.6s 0.3s both;
+        }
+        .tips-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
+        .tips-title i {
+            font-size: 1.8rem;
+            color: #b91c1c;
+        }
+        .tips-title h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+        .tip-item {
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: 1.2rem;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .tip-item:hover {
+            transform: translateY(-4px);
+            background: rgba(185,28,28,0.1);
+        }
+        .tip-item i {
+            font-size: 1.8rem;
+            color: #b91c1c;
+            margin-bottom: 0.8rem;
+        }
+        .tip-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .tip-item p {
+            font-size: 0.85rem;
+            color: #aaa;
+            line-height: 1.4;
+        }
+
+        /* ---------- SCROLL BACK UP BUTTON ---------- */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: #b91c1c;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1050;
+            box-shadow: 0 5px 15px rgba(185,28,28,0.4);
+        }
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-top:hover {
+            background: #8b1a1a;
+            transform: translateY(-5px);
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            background: #0a0a0a;
+            border-top: 1px solid rgba(185,28,28,0.3);
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 2rem;
+        }
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-brand .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+        .footer-brand .logo i {
+            font-size: 2rem;
+            color: #b91c1c;
+        }
+        .footer-brand .logo span {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(125deg, #ffffff, #b0c4ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .footer-brand p {
+            color: #aaa;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        .footer-col h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: #b91c1c;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+        .footer-links a i {
+            font-size: 0.7rem;
+            color: #b91c1c;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-icons a {
+            background: rgba(255,255,255,0.05);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.25s;
+        }
+        .social-icons a:hover {
+            background: #b91c1c;
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #888;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        @media (max-width: 850px) {
+            .guide-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+            .guide-hero h1 { font-size: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 0.5rem; }
+            .pros-cons { flex-direction: column; }
+            .tips-grid { grid-template-columns: 1fr; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR (Centered Links) -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="brand-wrapper">
+            <i class="fas fa-car-side car-logo"></i>
+            <span class="brand">TeslaHub</span>
+        </a>
+        <button class="hamburger" id="hamburgerBtn">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu" id="navMenu">
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="reviews.html"><i class="fas fa-star"></i> Reviews</a></li>
+                <li><a href="compare.html"><i class="fas fa-chart-line"></i> Compare</a></li>
+                <li><a href="buyingguide.html" class="active"><i class="fas fa-book-open"></i> Buying Guide</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <button class="btn-explore" id="exploreBtn">Explore Cars <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+</nav>
+
+<!-- BUYING GUIDE HERO -->
+<section class="guide-hero">
+    <h1>Tesla <span>Buying Guide</span></h1>
+    <p>Everything you need to know before going electric — from model selection to Nigerian realities.</p>
+</section>
+
+<!-- MAIN CONTENT GRID -->
+<div class="guide-grid">
+    <!-- Which Tesla Should You Buy? -->
+    <div class="guide-card">
+        <div class="card-title">
+            <i class="fas fa-question-circle"></i>
+            <h3>Which Tesla For You?</h3>
+        </div>
+        <ul class="model-list">
+            <li><i class="fas fa-car"></i> <strong>Model 3</strong> – Best value, great range, sporty handling. Perfect for singles or small families.</li>
+            <li><i class="fas fa-car-side"></i> <strong>Model Y</strong> – Extra cargo & available 7 seats. Ideal for families & road trips.</li>
+            <li><i class="fas fa-car"></i> <strong>Model S</strong> – Luxury, insane performance (Plaid), longest range. For enthusiasts.</li>
+            <li><i class="fas fa-truck"></i> <strong>Cybertruck</strong> – Rugged, futuristic, massive utility. For adventure lovers.</li>
+        </ul>
+        <p style="margin-top: 1rem;"><strong>Pro tip:</strong> If you're on a budget, the Model 3 RWD offers the best value. Need space? Model Y is unbeatable.</p>
+    </div>
+
+    <!-- Is Tesla Worth It in Nigeria? -->
+    <div class="guide-card">
+        <div class="card-title">
+            <i class="fas fa-globe-africa"></i>
+            <h3>Is Tesla Worth It in Nigeria?</h3>
+        </div>
+        <div class="pros-cons">
+            <div class="pros">
+                <h4><i class="fas fa-thumbs-up"></i> Pros</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> No fuel costs – charge with solar or grid</li>
+                    <li><i class="fas fa-check-circle"></i> Low maintenance (no oil changes)</li>
+                    <li><i class="fas fa-check-circle"></i> Instant torque & silent driving</li>
+                    <li><i class="fas fa-check-circle"></i> Prestige & future-proof tech</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4><i class="fas fa-thumbs-down"></i> Cons</h4>
+                <ul>
+                    <li><i class="fas fa-times-circle"></i> Limited Supercharger network</li>
+                    <li><i class="fas fa-times-circle"></i> High import duties & shipping</li>
+                    <li><i class="fas fa-times-circle"></i> Scarce service centers</li>
+                    <li><i class="fas fa-times-circle"></i> Grid reliability varies</li>
+                </ul>
+            </div>
+        </div>
+        <p style="margin-top: 1rem;"><strong>Verdict:</strong> Yes, if you have reliable home charging (solar ideal) and can afford the import premium. Savings on fuel and maintenance over 5+ years offset the upfront cost.</p>
+    </div>
+</div>
+
+<!-- EXTRA TIPS SECTION -->
+<div class="tips-section">
+    <div class="tips-card">
+        <div class="tips-title">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Essential Tips for Nigerian Tesla Buyers</h3>
+        </div>
+        <div class="tips-grid">
+            <div class="tip-item">
+                <i class="fas fa-charging-station"></i>
+                <h4>Charging Setup</h4>
+                <p>Install a wall connector at home. Solar + battery backup ensures power during outages.</p>
+            </div>
+            <div class="tip-item">
+                <i class="fas fa-ship"></i>
+                <h4>Import Process</h4>
+                <p>Use a reputable clearing agent. Budget 25-35% for duties & shipping from US/Europe.</p>
+            </div>
+            <div class="tip-item">
+                <i class="fas fa-tools"></i>
+                <h4>Maintenance</h4>
+                <p>Join local EV groups to find trained mechanics. Stock common parts like cabin filters.</p>
+            </div>
+            <div class="tip-item">
+                <i class="fas fa-road"></i>
+                <h4>Long Trips</h4>
+                <p>Plan routes with PlugShare for third-party chargers. Carry a mobile connector.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SCROLL BACK UP BUTTON -->
+<button class="scroll-top" id="scrollTopBtn" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fas fa-car-side"></i>
+                    <span>TeslaHub</span>
+                </div>
+                <p>Independent Tesla reviews, comparisons, and buying guides. Drive the future with honest insights.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="reviews.html"><i class="fas fa-chevron-right"></i> Reviews</a></li>
+                    <li><a href="compare.html"><i class="fas fa-chevron-right"></i> Compare</a></li>
+                    <li><a href="buyingguide.html"><i class="fas fa-chevron-right"></i> Buying Guide</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Stay Charged</h4>
+                <p style="color: #aaa; font-size: 0.8rem;">Get latest reviews & EV news.</p>
+                <div style="display: flex; margin-top: 0.5rem;">
+                    <input type="email" placeholder="Your email" style="flex:1; background:#1a1a1a; border:1px solid #333; padding:0.6rem; border-radius:40px 0 0 40px; color:white;">
+                    <button style="background:#b91c1c; border:none; padding:0 1rem; border-radius:0 40px 40px 0; color:white; cursor:pointer;"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 TeslaHub — Independent Tesla resource. Not affiliated with Tesla Inc.</span>
+            <div>
+                <a href="#" style="color:#888; text-decoration:none; margin-right:1rem;">Privacy</a>
+                <a href="#" style="color:#888; text-decoration:none;">Terms</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+
+
+     document.addEventListener("DOMContentLoaded", function() {
+
+    document.getElementById("exploreBtn").addEventListener("click", function() {
+      window.location.href = "reviews.html";
+  });
+});
+
+
+
+
+
+
+
+
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('navMenu');
+    function toggleMenu() {
+        navMenu.classList.toggle('active');
+        const spans = hamburger.querySelectorAll('span');
+        if (navMenu.classList.contains('active')) {
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 6px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
+        } else {
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
+    }
+    if (hamburger) hamburger.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+    document.querySelectorAll('.nav-links li a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 880 && navMenu.classList.contains('active')) toggleMenu();
+        });
+    });
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 880 && navMenu.classList.contains('active')) toggleMenu();
+    });
+   
+    // Scroll back up button
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) scrollBtn.classList.add('visible');
+        else scrollBtn.classList.remove('visible');
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+</body>
+</html>
